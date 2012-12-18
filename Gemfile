@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 gem 'mongoid'
 gem 'parseline'
+gem 'nokogiri'
 	 
 group :assets do
 	gem 'therubyracer', :platforms => :ruby
