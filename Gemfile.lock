@@ -153,6 +153,7 @@ DEPENDENCIES
   database_cleaner
   mongoid
   mongoid-rspec
+  nokogiri
   parseline
   pry
   rails (= 3.2.9)
