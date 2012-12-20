@@ -14,3 +14,9 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+
+trees.sublime-project
+
+*.sublime-workspace
+
+*.sublime-project
