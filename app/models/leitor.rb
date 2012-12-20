@@ -46,8 +46,10 @@ class Leitor
 		# binding.pry
 
 		lines.each do |line|
-				layout.header["campos"].each do |campo|
-					dipj[campo["atributo"]] = line[(campo["inicio"].to_i - 1)..(campo["fim"].to_i - 1)]
+				if lines[0] == line
+					layout.header["campos"].each do |campo|
+						dipj[campo["atributo"]] = line[(campo["inicio"].to_i - 1)..(campo["fim"].to_i - 1)]
+					end
 				end
 
 				layout.fichas.each do |layout_da_ficha|
