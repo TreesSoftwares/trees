@@ -1,8 +1,8 @@
-class Ficha
+class Registration
 	include Mongoid::Document
 
 	field :tipo
 	field :campos, type: Array
 
-	embedded_in :dipj
+	embedded_in :liability
 end

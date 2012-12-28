@@ -31,43 +31,6 @@ class Leitor
 		end
 
 		layout.save
-		# require 'pry'
-		# binding.pry
-	end
-
-	def self.loadFile(path, sistema, versao)
-		f = File.open(path)
-		lines = f.readlines
-		dipj = DIPJ.new
-		dipj.fichas = []
-
-		layout = Layout.find_by(sistema: sistema, ano: versao)	
- 	# 	require 'pry'
-		# binding.pry
-
-		lines.each do |line|
-				if lines[0] == line
-					layout.header["campos"].each do |campo|
-						dipj[campo["atributo"]] = line[(campo["inicio"].to_i - 1)..(campo["fim"].to_i - 1)]
-					end
-				end
-
-				layout.fichas.each do |layout_da_ficha|
-					unless layout_da_ficha["tipo_ficha"] != line[0..2]
-						ficha = Ficha.new
-						ficha.tipo = layout_da_ficha["tipo_ficha"]
-
-						layout_da_ficha["campos"].each do |campo|
-							ficha[campo["atributo"]] = line[(campo["inicio"].to_i - 1)..(campo["fim"].to_i - 1)]
-						end
-
-						dipj.fichas << ficha
-					end
-				end
-
-		end
-
-		dipj.save
 	end
 
 end
