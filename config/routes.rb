@@ -1,4 +1,8 @@
 Trees::Application.routes.draw do
+  get "load-files/" => 'load_files#index'
+
+  post "load-files/" => 'load_files#create'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

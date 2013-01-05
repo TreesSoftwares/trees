@@ -1,0 +1,12 @@
+<h1>Load Files</h1>
+
+<%= simple_form_for(@liability, :html => {:class => 'form-horizontal' }, :url => '/load-files/') do |f| %>
+
+  <%= f.file_field :file, :label => 'Arquivo' %>
+  <%= f.input :sistema, :collection => {"DIPJ" => "DIPJ"}, :label => 'Obrigações', :prompt => "Selecione" %>
+  <%= f.input :versao_pgd, :label => 'Ano' %>
+
+  <div class="form-actions">
+  	<%= f.button :submit, :value => "Carregar arquivo" %>
+  </div>
+<% end %>
