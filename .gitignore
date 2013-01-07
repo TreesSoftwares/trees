@@ -20,3 +20,5 @@ trees.sublime-project
 *.sublime-workspace
 
 *.sublime-project
+**.swp
+*.swp
