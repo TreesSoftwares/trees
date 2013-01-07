@@ -30,8 +30,9 @@ class Liability
 				end
 
 				layout.registrations.each do |layout_da_ficha|
-					unless layout_da_ficha["tipo_ficha"] != line[0..2]
+					unless layout_da_ficha["tipo_ficha"] != line[0..3].strip
 						ficha = Registration.new
+						
 						ficha.tipo = layout_da_ficha["tipo_ficha"]
 
 						layout_da_ficha["campos"].each do |campo|
