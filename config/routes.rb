@@ -1,4 +1,6 @@
 Trees::Application.routes.draw do
+  root :to => 'load_files#index'
+  
   get "load-files/" => 'load_files#index'
 
   post "load-files/" => 'load_files#create'
