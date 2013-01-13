@@ -5,6 +5,7 @@ gem 'mongoid'
 gem 'parseline'
 gem 'nokogiri'
 gem 'simple_form'
+gem 'less-rails'
 gem "twitter-bootstrap-rails"
 	 
 group :assets do
