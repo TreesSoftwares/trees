@@ -29,11 +29,11 @@ class Liability
 					end
 				end
 
-				layout.registrations.each do |layout_da_ficha|
-					unless layout_da_ficha["tipo_ficha"] != line[0..3].strip
+				layout.registros.each do |layout_da_ficha|
+					unless layout_da_ficha["tipo"] != line[0..3].strip
 						ficha = Registration.new
-
-						ficha.tipo = layout_da_ficha["tipo_ficha"]
+						
+						ficha.tipo = layout_da_ficha["tipo"]
 
 						layout_da_ficha["campos"].each do |campo|
 							ficha[campo["atributo"]] = line[(campo["inicio"].to_i - 1)..(campo["fim"].to_i - 1)]
@@ -44,10 +44,10 @@ class Liability
 				end
 		end
 
-		customer = CustomerCollection.with(collection: self.registrations.first.cnpj_contribuinte).find_by(cnpj: self.registrations.first.cnpj_contribuinte)
+		customer = CustomerCollection.with(collection: self.registrations.first.cnpj_do_contribuinte).find_by(cnpj: self.registrations.first.cnpj_do_contribuinte)
 
 		if customer.nil?
-			customer = CustomerCollection.with(collection: self.registrations.first.cnpj_contribuinte).new(cnpj: self.registrations.first.cnpj_contribuinte)
+			customer = CustomerCollection.with(collection: self.registrations.first.cnpj_do_contribuinte).new(cnpj: self.registrations.first.cnpj_do_contribuinte)
 		end
 
 		liability = customer.liabilities.find_by(sistema: sistema, versao_pgd: versao_pgd)
