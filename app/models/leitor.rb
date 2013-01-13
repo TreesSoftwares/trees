@@ -46,8 +46,9 @@ class Leitor
 	end
 
 	def self.pega_atributo(link, ordem)
-		atributo = link.css('td')[1].text.gsub(/[0-9]|\.| |\(|\)|\-|\,/, ' ' => '_', '- ' => '').removeaccents.downcase.gsub(/^\_|\__/, '__' => '_')
-		
+		atributo = link.css('td')[1].text.strip.gsub(/^[0-9]*|\.| |\(|\)|\-|\,|\//, ' ' => '_', '- ' => '', '/'=> '')
+			.removeaccents.downcase.gsub(/^\_|\__|_\/|\%/, '__' => '_', '%' => 'porcento', '/' => '_', '_/' => '')
+				
 		if atributo == 'reservado'
 			return atributo + ordem
 		end
